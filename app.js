@@ -28,6 +28,7 @@ app.use(flash())
 
 // res.locals it turns out that setting locals variable should be done after initializing passport. Order of middle wear matters.
 app.use((req, res, next) => {
+    console.log(req.session.flash)
     //
     res.locals.filterUserHTML = (content) => {
         return sanitizeHTML(markdown(content), {allowedTags: ['p', 'br', 'strong', 'ol', 'ul', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']})
